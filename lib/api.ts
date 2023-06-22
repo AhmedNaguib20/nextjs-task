@@ -1,5 +1,7 @@
-const fetcher = async ({ url, method, body, json = true }) => {
-  const res = await fetch(url, {
+import { API_METHODS, ApiRequest, CreditsResponse, MOVIES_TYPES, Movie, MoviesResponse } from "./models";
+
+const fetcher = async ({ url, method, body }: ApiRequest) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/${url}?&api_key=${process.env.NEXT_PUBLIC_API_KEY}`, {
     method,
     body: body && JSON.stringify(body),
     headers: {
@@ -12,34 +14,30 @@ const fetcher = async ({ url, method, body, json = true }) => {
     throw new Error("API Error");
   }
 
-  if (json) {
-    const data = await res.json();
-    return data;
-  }
+  const data = await res.json();
+  return data;
 };
 
-export const register = async (user) => {
+export const getMoviesList = async (page: number = 2, segment: MOVIES_TYPES): Promise<MoviesResponse> => {
   return fetcher({
-    url: "/api/register",
-    method: "POST",
-    body: user,
-    json: false,
+    url: `movie/${segment}?page=${page}`,
+    method: API_METHODS.GET,
+    body: null
   });
 };
 
-export const signin = async (user) => {
+export const getMovieDetails = async (movie_id: number): Promise<Movie> => {
   return fetcher({
-    url: "/api/signin",
-    method: "POST",
-    body: user,
-    json: false,
+    url: `movie/${movie_id}`,
+    method: API_METHODS.GET,
+    body: null
   });
 };
 
-export const createNewProject = (name) => {
+export const getMovieCredits = async (movie_id: number): Promise<CreditsResponse> => {
   return fetcher({
-    url: "/api/project",
-    method: "POST",
-    body: { name },
+    url: `movie/${movie_id}/credits`,
+    method: API_METHODS.GET,
+    body: null
   });
 };

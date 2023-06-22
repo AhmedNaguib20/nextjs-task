@@ -1,5 +1,5 @@
 {
-  "name": "task-management-nextjs",
+  "name": "movives-app-nextjs",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,34 +12,26 @@
     "seed": "ts-node -P tsconfig-seed.json -r tsconfig-paths/register --transpileOnly prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "4.6.1",
     "@types/node": "20.3.1",
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
     "@types/react-modal": "^3.16.0",
+    "antd": "^5.6.2",
     "autoprefixer": "10.4.14",
-    "bcrypt": "5.1.0",
-    "class-variance-authority": "0.6.0",
-    "clsx": "1.2.1",
-    "cookie": "0.5.0",
+    "clsx": "^1.2.1",
     "css-reset-and-normalize": "2.3.6",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.6",
     "immer": "^10.0.2",
-    "jose": "4.11.1",
+    "moment": "^2.29.4",
     "next": "13.4.6",
     "postcss": "8.4.24",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-feather": "2.0.10",
-    "react-modal": "^3.16.1",
     "tailwindcss": "3.3.2",
     "typescript": "^5.1.3"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.0",
-    "@types/cookie": "^0.5.1",
-    "prisma": "4.6.1",
     "tailwindcss": "3.2.4",
     "ts-node": "10.9.1",
     "tsconfig-paths": "4.1.1"

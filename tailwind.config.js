@@ -6,8 +6,10 @@ module.exports = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["var(--font-inter)"],
+      height: {
+        '350': '350px',
+        '500': '500px',
+        '600': '600px',
       },
     },
   },
